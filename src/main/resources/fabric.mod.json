@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "alone-hunger-strike",
+  "version": "${version}",
+  "name": "Hunger Strike (Fabric)",
+  "description": "Reintroduces beta-like hunger mechanics into modern Minecraft.",
+  "authors": ["RadioactiveSnowball"],
+  "contact": {
+    "repo": "https://github.com/radioactivesnowball/alone-hunger-strike"
+  },
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "client": [],
+    "main": ["snow.alone.hungerstrike.HungerStrike"]
+  },
+  "mixins": ["alone-hunger-strike.mixins.json"],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "${minecraft_version}"
+  },
+  "conflicts": {
+    "appleskin": "*"
+  }
+}
