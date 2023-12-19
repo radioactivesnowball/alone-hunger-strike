@@ -7,6 +7,7 @@ import net.minecraft.client.gui.hud.InGameHud;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Slice;
+import snow.alone.hungerstrike.config.HungerStrikeConfig;
 
 @Environment(EnvType.CLIENT)
 @Mixin(InGameHud.class)
@@ -22,6 +23,6 @@ public abstract class MixinInGameHud {
 		at = @At(value = "CONSTANT", ordinal = 0, args = "intValue=10")
 	)
 	public int removeHungerBar(int original) {
-		return -1;
+		return HungerStrikeConfig.getInstance().disableDisplay ? -1 : original;
 	}
 }

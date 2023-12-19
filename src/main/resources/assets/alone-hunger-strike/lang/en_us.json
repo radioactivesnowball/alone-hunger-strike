@@ -1,0 +1,13 @@
+{
+  "yacl3.config.alone-hunger-strike:config.category.sprinting": "Sprinting",
+  "yacl3.config.alone-hunger-strike:config.category.regen": "Regeneration",
+  "yacl3.config.alone-hunger-strike:config.category.food": "Food",
+  "yacl3.config.alone-hunger-strike:config.category.misc": "Misc.",
+  "yacl3.config.alone-hunger-strike:config.disableSprinting": "Disable sprinting",
+  "yacl3.config.alone-hunger-strike:config.disableSprintingOnHunger": "Disable sprinting when Hunger is applied",
+  "yacl3.config.alone-hunger-strike:config.regenTickRate": "Natural regeneration tick rate",
+  "yacl3.config.alone-hunger-strike:config.disableFoodRegen": "Disable food regeneration",
+  "yacl3.config.alone-hunger-strike:config.foodValueMultiplier": "Food value multiplier",
+  "yacl3.config.alone-hunger-strike:config.alwaysAllowConsumption": "Always allow consumption",
+  "yacl3.config.alone-hunger-strike:config.disableDisplay": "Disable hunger bar display"
+}

@@ -11,6 +11,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
+import snow.alone.hungerstrike.config.HungerStrikeConfig;
 
 @Mixin(PlayerEntity.class)
 public abstract class MixinPlayerEntity extends LivingEntity {
@@ -28,9 +29,10 @@ public abstract class MixinPlayerEntity extends LivingEntity {
 		)
 	)
 	public void giveHealthForFood(HungerManager instance, Item item, ItemStack stack) {
-		if (item.isFood()) {
+		final HungerStrikeConfig config = HungerStrikeConfig.getInstance();
+		if (!config.disableFoodRegen && item.isFood()) {
 			//noinspection DataFlowIssue
-			this.heal(item.getFoodComponent().getHunger());
+			this.heal(item.getFoodComponent().getHunger() * config.foodValueMultiplier);
 		}
 	}
 
@@ -39,6 +41,6 @@ public abstract class MixinPlayerEntity extends LivingEntity {
 		at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/HungerManager;isNotFull()Z")
 	)
 	public boolean makeFoodConsumable(HungerManager instance) {
-		return canFoodHeal();
+		return HungerStrikeConfig.getInstance().alwaysAllowConsumption || canFoodHeal();
 	}
 }

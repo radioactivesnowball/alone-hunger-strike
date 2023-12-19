@@ -12,12 +12,14 @@
   "environment": "*",
   "entrypoints": {
     "client": [],
-    "main": ["snow.alone.hungerstrike.HungerStrike"]
+    "main": ["snow.alone.hungerstrike.HungerStrike"],
+    "modmenu": ["snow.alone.hungerstrike.config.ModMenuIntegration"]
   },
   "mixins": ["alone-hunger-strike.mixins.json"],
   "depends": {
     "fabricloader": ">=${loader_version}",
-    "minecraft": "${minecraft_version}"
+    "minecraft": "${minecraft_version}",
+    "yet_another_config_lib_v3": "*"
   },
   "conflicts": {
     "appleskin": "*"

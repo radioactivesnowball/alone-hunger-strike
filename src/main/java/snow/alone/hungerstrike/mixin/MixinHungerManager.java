@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import snow.alone.hungerstrike.config.HungerStrikeConfig;
 
 @Mixin(HungerManager.class)
 public abstract class MixinHungerManager {
@@ -24,7 +25,7 @@ public abstract class MixinHungerManager {
 		final boolean regeneration = world.getGameRules().getBoolean(GameRules.NATURAL_REGENERATION);
 		if (regeneration && player.canFoodHeal()) {
 			this.foodTickTimer++;
-			if (this.foodTickTimer >= 10) {
+			if (this.foodTickTimer >= HungerStrikeConfig.getInstance().regenTickRate) {
 				player.heal(1.0F);
 				this.foodTickTimer = 0;
 			}
